@@ -1,6 +1,33 @@
 from tests.conftest import test_app
+import os
+
+from PIL import Image
 
 def test_root(test_app):
     response = test_app.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello World"}
+
+
+def test_predict_when_image_is_valid(test_app):
+    # arrange         
+    filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets', 'cat_image.jpg')     
+    expected_response = {'filename': 'cat_image.jpg', 'contentype': 'image/jpeg'} ## won't check predicted class
+    # act
+    actual_response = test_app.post('/predict/', files={"file": ("cat_image.jpg", open(filepath, "rb"), "image/jpeg")})        
+    # assert    
+    assert actual_response.status_code == 200    
+    actual_response = actual_response.json()
+    print(actual_response)
+    assert actual_response['filename'] == expected_response['filename']
+    assert actual_response['contentype'] == expected_response['contentype']    
+
+def test_predict_when_file_not_an_image(test_app):
+    # arrange         
+    filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets', 'not_image.txt')     
+    expected_response = {'detail' :'File \'not_image.txt\' is not an image.'}
+    # act
+    actual_response = test_app.post('/predict/', files={"file":  open(filepath, "rb")})
+    # assert    
+    assert actual_response.status_code == 400    
+    assert actual_response.json() == expected_response
