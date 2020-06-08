@@ -20,7 +20,6 @@ def prediction(image):
     image = image.unsqueeze(0)
 
     output = classifier(image)    
-    class_idx = torch.argmax(output, dim=1)
-    print("OUTPUT : ", output)
+    class_idx = torch.argmax(output, dim=1)    
     
     return CLASSES[class_idx]
