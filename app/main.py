@@ -3,6 +3,7 @@ import uvicorn
 
 from PIL import Image
 import io
+import sys
 
 from response_dto.prediction_response_dto import PredictionResponseDto
 from deep_learning_model.predictions.classify_image import prediction
@@ -31,4 +32,5 @@ async def predict(file: UploadFile = File(...)):
             "likely_class": predicted_class,
         }
     except:
-        pass
+        e = sys.exc_info()[1]
+        raise HTTPException(status_code=500, detail=str(e))
