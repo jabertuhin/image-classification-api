@@ -6,14 +6,12 @@ import io
 import sys
 
 from response_dto.prediction_response_dto import PredictionResponseDto
-from deep_learning_model.predictions.classify_image import prediction
+from deep_learning_model.predictions.classify_image import ImageClassifier
 
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return { "message": "Hello World" }
+image_classifier = ImageClassifier()
 
 @app.post("/predict/", response_model=PredictionResponseDto)
 async def predict(file: UploadFile = File(...)):    
@@ -24,7 +22,7 @@ async def predict(file: UploadFile = File(...)):
         contents = await file.read()
         image = Image.open(io.BytesIO(contents)).convert('RGB')
 
-        predicted_class = prediction(image)
+        predicted_class = image_classifier.predict(image)
 
         return {
             "filename": file.filename, 
