@@ -13,8 +13,7 @@ class Classifier(LightningModule):
         self.transform = config.TRANSFORM
         self.train_batch_size = config.TRAIN_BATCH_SIZE
         self.val_batch_size = config.VAL_BATCH_SIZE
-        self.test_batch_size = config.TEST_BATCH_SIZE
-        self.number_of_workers = config.NUMBER_OF_WORKERS        
+        self.test_batch_size = config.TEST_BATCH_SIZE        
         self.model = config.MODEL
         self.learning_rate = config.LEARNING_RATE
         self.model.fc = nn.Linear(in_features=self.model.fc.in_features, out_features=config.NUM_CLASSES)
@@ -41,7 +40,7 @@ class Classifier(LightningModule):
 
     def train_dataloader(self):        
         trainloader = DataLoader(self.trainset, batch_size=self.train_batch_size,
-                                          shuffle=True, num_workers=self.number_of_workers)
+                                          shuffle=True)
         return trainloader                                             
 
     def val_dataloader(self):
@@ -49,7 +48,7 @@ class Classifier(LightningModule):
 
     def test_dataloader(self):        
         testloader = DataLoader(self.testset, batch_size=self.test_batch_size,
-                                         shuffle=False, num_workers=self.number_of_workers)                                         
+                                         shuffle=False)                                         
         return testloader
 
     def training_step(self, batch, batch_idx):
