@@ -9,7 +9,7 @@ import os
 
 def prediction(image):    
     classifier = Classifier()
-    model_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), MODEL_NAME)         
+    model_path = os.path.join('deep_learning_model', 'trained_model', MODEL_NAME)         
     classifier.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 
     transforms_image = transforms.Compose(
