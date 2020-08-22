@@ -37,6 +37,7 @@ Use *--reload* argument if you want to change code and see the effect immediatel
 ![alt text](test_case_passed.PNG "2 Test Cases Passed")
 
 ### How to run the app with docker
+
 Make sure you are in the project root directory and you have started docker. Then create docker image using the following command.
 
 ```
@@ -47,7 +48,7 @@ After the image is successfully built, run the following commands to run the con
 ```
 docker run -p 5000:80 image-classifier-api
 ```
-
+And visit **http://127.0.0.1:5000/docs** from your browser. You will be able to see swagger. From there you can upload an image through *predict* endpoint and then you will get a json response.
 
 ### Model Training and Performance
 
@@ -70,12 +71,12 @@ This projects isn't upto the production standard at all. I will be updating this
 
 Though I have plan to work on the following improvements:
 
-- Introducing Docker
-- CI/CD pipeline
-- SonarCloud or Other code quality checking tool/service integration
-- Dependency Injection in FastApi
-- Saving requested images in s3 bucket.
-- deploying the project on AWS or Heroku App
+- [x] Introducing Docker
+- [ ] CI/CD pipeline
+- [ ] SonarCloud or Other code quality checking tool/service integration
+- [ ] Dependency Injection in FastApi
+- [ ] Saving requested images in s3 bucket.
+- [ ] deploying the project on AWS or Heroku App
 
 ### References:
 - [Developing and Testing an Asynchronous API with FastAPI and Pytest](https://testdriven.io/blog/fastapi-crud/)
