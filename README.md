@@ -6,6 +6,7 @@ Serving deep learning model thorugh API.
 
 Used **fastapi, pytorch, pytorch-lightning** mainly to create this project. You can use requirements.txt to install appropriate package version. First, create a virtual environment before installing any packages.
 ```
+pip install torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
 >Note: The model was trained on Google Colab with GPU support.
@@ -34,6 +35,19 @@ Use *--reload* argument if you want to change code and see the effect immediatel
 >To Run the Test Cases Use *pytest* command from project root directory. Then you will see something similar to this -
 
 ![alt text](test_case_passed.PNG "2 Test Cases Passed")
+
+### How to run the app with docker
+Make sure you are in the project root directory and you have started docker. Then create docker image using the following command.
+
+```
+docker build -t image-classifier-api .
+```
+After the image is successfully built, run the following commands to run the container.
+
+```
+docker run -p 5000:80 image-classifier-api
+```
+
 
 ### Model Training and Performance
 
