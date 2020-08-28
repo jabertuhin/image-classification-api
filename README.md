@@ -6,7 +6,6 @@ Serving deep learning model thorugh API.
 
 Used **fastapi, pytorch, pytorch-lightning** mainly to create this project. You can use requirements.txt to install appropriate package version. First, create a virtual environment before installing any packages.
 ```
-pip install torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
 >Note: The model was trained on Google Colab with GPU support.
