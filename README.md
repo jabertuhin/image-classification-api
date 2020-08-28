@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jabertuhin/image-classification-api.svg?branch=development)](https://travis-ci.org/jabertuhin/image-classification-api)
+
 # User Guide
 
 Serving deep learning model thorugh API.
@@ -71,7 +73,7 @@ This projects isn't upto the production standard at all. I will be updating this
 Though I have plan to work on the following improvements:
 
 - [x] Introducing Docker
-- [ ] CI/CD pipeline
+- [x] CI pipeline
 - [ ] SonarCloud or Other code quality checking tool/service integration
 - [ ] Dependency Injection in FastApi
 - [ ] Saving requested images in s3 bucket.
