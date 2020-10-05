@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+   name: image-classification-api
+   labels:
+      app: myapp
+      type: backend
+
+spec:
+    containers:
+       - name: fastapi
+         image: jabertuhin/image-classification-api
