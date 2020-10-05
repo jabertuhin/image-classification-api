@@ -4,6 +4,7 @@ import uvicorn
 from PIL import Image
 import io
 import sys
+import logging
 
 from response_dto.prediction_response_dto import PredictionResponseDto
 from deep_learning_model.predictions.classify_image import ImageClassifier
@@ -23,12 +24,14 @@ async def predict(file: UploadFile = File(...)):
         image = Image.open(io.BytesIO(contents)).convert('RGB')
 
         predicted_class = image_classifier.predict(image)
-
+        
+        logging.info(f"Predicted Class: {predicted_class}")
         return {
             "filename": file.filename, 
             "contentype": file.content_type,            
             "likely_class": predicted_class,
         }
-    except:
+    except Exception as error:
+        logging.exception(error)
         e = sys.exc_info()[1]
         raise HTTPException(status_code=500, detail=str(e))
