@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+   name: image-classifier-deployment
+   labels:
+      app: image-classifier
+      type: back-end
+
+spec:
+   template:
+      metadata:
+         name: image-classifier-pod
+         labels:
+            app: image-classifier
+            type: back-end
+      spec:
+         containers:
+            - name: image-classification-api
+              image: jabertuhin/image-classification-api
+
+   replicas: 3
+   selector:
+      matchLabels:
+         type: back-end
