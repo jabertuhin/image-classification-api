@@ -1,6 +1,13 @@
 language: python
 python:
   - "3.8"  
+  
+addons:
+  sonarcloud:
+    organization: "jabertuhin"
+    token:
+      secure: $SONAR_TOKEN
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
