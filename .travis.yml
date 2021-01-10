@@ -14,3 +14,4 @@ install:
 # command to run tests
 script:
   - pytest --cov-report xml --cov=app tests/
+  - sonar-scanner
