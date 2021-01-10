@@ -7,8 +7,6 @@ addons:
     organization: "jabertuhin"
     token:
       secure: $SONAR_TOKEN
-    branches:
-      - development
 
 # command to install dependencies
 install:
@@ -16,5 +14,4 @@ install:
 # command to run tests
 script:
   - pytest --cov-report xml --cov=app tests/
-  - export SONARQUBE_SKIPPED=false
   - sonar-scanner
