@@ -6,3 +6,14 @@ repos:
     - id: check-added-large-files
     - id: no-commit-to-branch
     - id: requirements-txt-fixer
+    - id: check-yaml
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+    - id: flake8
+      additional_dependencies: [flake8-typing-imports==1.7.0]
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.812
+    hooks:
+    - id: mypy
+      additional_dependencies: [tokenize-rt==3.2.0]
