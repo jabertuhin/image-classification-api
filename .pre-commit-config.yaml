@@ -16,12 +16,6 @@ repos:
     hooks:
     - id: mypy
       additional_dependencies: [tokenize-rt==3.2.0]
-
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
-    rev: v1.0.4
-    hooks:
-    - id: python-bandit-vulnerability-check
-
   - repo: local
     hooks:
     - id: tests
@@ -29,4 +23,4 @@ repos:
       entry: pytest -v
       language: system
       types: [python]
-      stages: [commit]
+      stages: [push]
