@@ -10,7 +10,6 @@ repos:
     rev: 3.8.4
     hooks:
     - id: flake8
-      additional_dependencies: [flake8-typing-imports==1.7.0]
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.812
     hooks:
@@ -18,9 +17,10 @@ repos:
       additional_dependencies: [tokenize-rt==3.2.0]
   - repo: local
     hooks:
-    - id: tests
+    - id: unit-tests
       name: run tests
       entry: pytest -v
       language: system
       types: [python]
+      always_run: true
       stages: [push]
