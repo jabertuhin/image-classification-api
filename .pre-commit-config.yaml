@@ -10,17 +10,18 @@ repos:
     rev: 3.8.4
     hooks:
     - id: flake8
+      stages: [commit]
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.812
     hooks:
     - id: mypy
       additional_dependencies: [tokenize-rt==3.2.0]
+      stages: [commit]
   - repo: local
     hooks:
-    - id: unit-tests
+    - id: tests
       name: run tests
       entry: pytest -v
       language: system
       types: [python]
-      always_run: true
       stages: [push]
