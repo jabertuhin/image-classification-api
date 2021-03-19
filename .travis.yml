@@ -13,4 +13,4 @@ install:
   - pip install -r requirements.dev.txt
 # command to run tests
 script:
-  - pytest --cov-report xml --cov=app tests/
+  - pytest --cov-report xml --cov=app tests/  
