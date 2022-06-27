@@ -2,7 +2,7 @@ fastapi==0.65.2
 numpy==1.22.0
 Pillow>=8.1.1
 python-multipart==0.0.5
-pytorch-lightning==0.7.6
+pytorch-lightning==1.6.0
 uvicorn==0.11.7
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
