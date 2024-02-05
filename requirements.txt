@@ -1,4 +1,4 @@
-fastapi==0.65.2
+fastapi==0.109.1
 numpy==1.22.0
 Pillow>=8.1.1
 python-multipart==0.0.5
