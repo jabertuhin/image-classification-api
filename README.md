@@ -1,18 +1,25 @@
 [![Build Status](https://travis-ci.org/jabertuhin/image-classification-api.svg?branch=development)](https://travis-ci.org/jabertuhin/image-classification-api)
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
+> [!NOTE]
+> Developed on python 3.8.5
+
 # User Guide
 
 Serving deep learning model thorugh API.
 
 ### Installation
 
-Used **fastapi, pytorch, pytorch-lightning** mainly to create this project. You can use requirements.txt to install appropriate package version. First, create a virtual environment before installing any packages.
+Used **fastapi, pytorch, pytorch-lightning** mainly to create this project. You can use `requirements.txt` to install appropriate package version. First, create a virtual environment before installing any packages.
+
 ```
 pip install -r requirements.txt
 ```
->Note: The model was trained on Google Colab with GPU support.
 
-### About Project 
+> Note: The model was trained on Google Colab with GPU support.
+
+### About Project
 
 This is a pet project where I wanted to learn FastApi. It's easy to train a new model these days. I also wanted to serve the model through an API. FastApi is very light and Flask like framework.
 
@@ -29,11 +36,12 @@ After installing necessary packages, use the following command to run the app fr
 ```
 uvicorn app.main:app
 ```
-And visit **http://127.0.0.1:8000/docs** from your browser. You will be able to see swagger. From there you can upload an image through *predict* endpoint and then you will get a json response.
 
-Use *--reload* argument if you want to change code and see the effect immediately.
+And visit **http://127.0.0.1:8000/docs** from your browser. You will be able to see swagger. From there you can upload an image through _predict_ endpoint and then you will get a json response.
 
->To Run the Test Cases Use *pytest* command from project root directory. Then you will see something similar to this -
+Use _--reload_ argument if you want to change code and see the effect immediately.
+
+> To Run the Test Cases Use _pytest_ command from project root directory. Then you will see something similar to this -
 
 ![alt text](test_case_passed.PNG "2 Test Cases Passed")
 
@@ -44,18 +52,20 @@ Make sure you are in the project root directory and you have started docker. The
 ```
 docker build -t image-classifier-api .
 ```
+
 After the image is successfully built, run the following commands to run the container.
 
 ```
 docker run -p 5000:80 image-classifier-api
 ```
-And visit **http://127.0.0.1:5000/docs** from your browser. You will be able to see swagger. From there you can upload an image through *predict* endpoint and then you will get a json response.
+
+And visit **http://127.0.0.1:5000/docs** from your browser. You will be able to see swagger. From there you can upload an image through _predict_ endpoint and then you will get a json response.
 
 ### Model Training and Performance
 
-Model performance wasn't the main focus of this project. So, I didn't try much to improve the model performance. All the hyperparameters can be found in *config.py* file.
+Model performance wasn't the main focus of this project. So, I didn't try much to improve the model performance. All the hyperparameters can be found in _config.py_ file.
 
-All the files related to training can be found in the *deep_learning_model/training* folder.
+All the files related to training can be found in the _deep_learning_model/training_ folder.
 
 ### Personal Feedback About The Project
 
@@ -64,7 +74,7 @@ All the files related to training can be found in the *deep_learning_model/train
 - There is "TorchScript" to take pytorch code to production which is much optimized version.
 - The description of this README file isn't enough user friendly.
 
->NOTE: Please, raise issue if you find an area where it needs some improvement.
+> NOTE: Please, raise issue if you find an area where it needs some improvement.
 
 ### Future Plan
 
@@ -80,6 +90,7 @@ Though I have plan to work on the following improvements:
 - [ ] deploying the project on AWS or Heroku App
 
 ### References:
+
 - [Developing and Testing an Asynchronous API with FastAPI and Pytest](https://testdriven.io/blog/fastapi-crud/)
 - [Tutorial: How to deploy your ConvNet classifier with Keras and FastAPI](https://www.machinecurve.com/index.php/2020/03/19/tutorial-how-to-deploy-your-convnet-classifier-with-keras-and-fastapi/)
 - [Building a Machine Learning API with FastAPI](https://brandonserna.github.io/fastapi/)
